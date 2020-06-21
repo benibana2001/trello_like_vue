@@ -1,0 +1,10 @@
+const mutationTypes = {
+  AUTH_LOGIN: 'AUTH_LOGIN',
+  FETCH_ALL_TASKLIST: 'FETCH_ALL_TASKLIST',
+  ADD_TASK: 'ADD_TASK',
+  UPDATE_TASK: 'UPDATE_TASK',
+  REMOVE_TASK: 'REMOVE_TASK',
+  AUTH_LOGOUT: 'AUTH_LOGOUT',
+};
+
+export default mutationTypes;
