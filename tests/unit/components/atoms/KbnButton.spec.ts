@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, Wrapper } from '@vue/test-utils';
 import KbnButton from '@/components/atoms/KbnButton.vue';
 
 describe('KbnButton', () => {
@@ -6,29 +6,32 @@ describe('KbnButton', () => {
     describe('type', () => {
       describe('default', () => {
         it('composed with kbn-button class', () => {
-          const button = shallowMount(KbnButton);
-          expect(button.element.tagName.toLowerCase()).toBe('button');
-          expect(button.classes()).toContain('kbn-button');
+          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton);
+
+          expect(wrapper.element.tagName.toLowerCase()).toBe('button');
+          expect(wrapper.classes()).toContain('kbn-button');
         });
       });
 
       describe('button', () => {
         it('', () => {
-          const button = shallowMount(KbnButton, {
+          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton, {
             propsData: { type: 'button' },
           });
-          expect(button.element.tagName.toLowerCase()).toBe('button');
-          expect(button.classes()).toContain('kbn-button');
+
+          expect(wrapper.element.tagName.toLowerCase()).toBe('button');
+          expect(wrapper.classes()).toContain('kbn-button');
         });
       });
 
       describe('text', () => {
         it('', () => {
-          const button = shallowMount(KbnButton, {
+          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton, {
             propsData: { type: 'text' },
           });
-          expect(button.element.tagName.toLowerCase()).toBe('button');
-          expect(button.classes()).toContain('kbn-button-text');
+
+          expect(wrapper.element.tagName.toLowerCase()).toBe('button');
+          expect(wrapper.classes()).toContain('kbn-button-text');
         });
       });
     });
@@ -36,26 +39,26 @@ describe('KbnButton', () => {
     describe('disabled', () => {
       describe('default', () => {
         it('not attached disabled property', () => {
-          const button = shallowMount(KbnButton);
-          expect(button.attributes().disabled).toBeUndefined();
+          const wrapper = shallowMount(KbnButton);
+          expect(wrapper.attributes().disabled).toBeUndefined();
         });
       });
 
       describe('true', () => {
         it('not attached disabled property', () => {
-          const button = shallowMount(KbnButton, {
+          const wrapper = shallowMount(KbnButton, {
             propsData: { disabled: true },
           });
-          expect(button.attributes().disabled).toEqual('disabled');
+          expect(wrapper.attributes().disabled).toEqual('disabled');
         });
       });
 
       describe('false', () => {
         it('not attached disabled property', () => {
-          const button = shallowMount(KbnButton, {
+          const wrapper = shallowMount(KbnButton, {
             propsData: { disabled: false },
           });
-          expect(button.attributes().disabled).toBeUndefined();
+          expect(wrapper.attributes().disabled).toBeUndefined();
         });
       });
     });
@@ -64,26 +67,26 @@ describe('KbnButton', () => {
   describe('EVENT', () => {
     describe('click', () => {
       it('to be emitted', () => {
-        const button = shallowMount(KbnButton);
-        button.trigger('click');
-        expect(button.emitted().click?.length).toEqual(1);
+        const wrapper = shallowMount(KbnButton);
+        wrapper.trigger('click');
+        expect(wrapper.emitted().click?.length).toEqual(1);
       });
     });
   }),
     describe('SLOT', () => {
       describe('inject contents', () => {
         it('injected', () => {
-          const button = shallowMount(KbnButton, {
+          const wrapper = shallowMount(KbnButton, {
             slots: { default: '<p>hello</p>' },
           });
 
-          expect(button.text()).toEqual('hello');
+          expect(wrapper.text()).toEqual('hello');
         });
       });
       describe('not inject contents', () => {
         it('not injected', () => {
-          const button = shallowMount(KbnButton);
-          expect(button.text()).toEqual('');
+          const wrapper = shallowMount(KbnButton);
+          expect(wrapper.text()).toEqual('');
         });
       });
     });
