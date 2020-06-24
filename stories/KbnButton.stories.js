@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import KbnButton from '../components/atoms/KbnButton.vue';
+import KbnButton from '../src/components/atoms/KbnButton.vue';
 
 export default {
   component: KbnButton,
