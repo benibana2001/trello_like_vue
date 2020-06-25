@@ -11,6 +11,7 @@ export default {
   methods: {
     onClick() {
       this.$emit('click');
+      alert('hello');
     },
   },
 };

@@ -16,29 +16,26 @@ describe('KbnLoginForm', () => {
       });
 
       describe('email', () => {
-        describe('required', () => {
-          describe('no input', () => {
-            it('validation.email.required is invalid', () => {
-              wrapper.setData({ email: '' });
-              expect(wrapper.vm.$data.validation.email.required).toBeFalsy();
-            });
-          });
-
-          describe('exist input', () => {
-            it('validation.email.required is valid', () => {
-              console.log(wrapper.vm.$data);
-              expect(wrapper.vm.$data.validation.email.required).toBeTruthy();
-            });
-          });
-        });
-
+        // describe('required', () => {
+        //   describe('no input', () => {
+        //     it('validation.email.required is invalid', () => {
+        //       wrapper.setData({ email: '' });
+        //       expect(wrapper.vm.$data.validation.email.required).toBeFalsy();
+        //     });
+        //   });
+        //   describe('exist input', () => {
+        //     it('validation.email.required is valid', () => {
+        //       console.log(wrapper.vm.$data);
+        //       expect(wrapper.vm.$data.validation.email.required).toBeTruthy();
+        //     });
+        //   });
+        // });
         // describe('format', () => {
         //   it('format is not type of mail addres', () => {
         //     it('validation.email.format is invalid', () => {
         //       wrapper.setData({ email: 'foobar' });
         //       expect(wrapper.vm.validation.email.format).toBeFalsy();
         //     });
-
         //     it('validation.email.format is valid', () => {
         //       wrapper.setData({ email: 'foo@bar.com' });
         //       expect(wrapper.vm.validation.email.format).toBeTruthy();

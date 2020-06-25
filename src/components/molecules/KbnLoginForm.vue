@@ -7,7 +7,7 @@
         v-model="email"
         type="text"
         autocomplete="off"
-        placeholder="exp: bar@foo.com"
+        placeholder="例: bar@foo.com"
         @focus="resetError"
       />
 
@@ -59,7 +59,8 @@
 import Vue from 'vue';
 import KbnButton from '@/components/atoms/KbnButton';
 
-const REGEX_EMAIL = () => console.log('not implemented yet');
+// const REGEX_EMAIL = /123/;
+const REGEX_EMAIL = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const required = val => !!val.trim();
 
@@ -92,7 +93,7 @@ export default Vue.extend({
           required: required(this.email),
           format: REGEX_EMAIL.test(this.email),
         },
-        pasword: {
+        password: {
           required: required(this.password),
         },
       };
