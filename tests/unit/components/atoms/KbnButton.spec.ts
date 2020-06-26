@@ -1,12 +1,13 @@
 import { shallowMount, Wrapper } from '@vue/test-utils';
 import KbnButton from '@/components/atoms/KbnButton.vue';
+import { CombinedVueInstance } from 'vue/types/vue';
 
 describe('KbnButton', () => {
   describe('PROPERTY', () => {
     describe('type', () => {
       describe('default', () => {
         it('composed with kbn-button class', () => {
-          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton);
+          const wrapper = shallowMount(KbnButton);
 
           expect(wrapper.element.tagName.toLowerCase()).toBe('button');
           expect(wrapper.classes()).toContain('kbn-button');
@@ -15,7 +16,7 @@ describe('KbnButton', () => {
 
       describe('button', () => {
         it('', () => {
-          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton, {
+          const wrapper = shallowMount(KbnButton, {
             propsData: { type: 'button' },
           });
 
@@ -26,7 +27,7 @@ describe('KbnButton', () => {
 
       describe('text', () => {
         it('', () => {
-          const wrapper: Wrapper<KbnButton> = shallowMount(KbnButton, {
+          const wrapper = shallowMount(KbnButton, {
             propsData: { type: 'text' },
           });
 
